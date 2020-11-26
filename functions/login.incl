@@ -1,0 +1,54 @@
+declare -A loginInfo
+
+domainParts=( ${CERTBOT_DOMAIN//./ } )
+DOMAIN="${domainParts[*]: -2:2}"
+DOMAIN="${DOMAIN// /.}"
+
+. ../setttings/domains.incl
+
+read -u 9 user password 9< <( echo "${loginInfo[${DOMAIN}]}" )
+
+#   start
+#   basis funktioner
+#
+
+#
+#   login
+curl \
+    --silent \
+    -c ../download/cookies.txt \
+    -b ../download/cookies.txt \
+    -F action=logmein \
+    -F login=${user} \
+    -F password=${password} \
+    -L \
+    --output ../download/gratisdns.html \
+    --url 'https://admin.gratisdns.com/'
+
+#
+#   tjek at domænet findes
+curl \
+    --silent \
+    -c ../download/cookies.txt \
+    -b ../download/cookies.txt \
+    -F action=dns_primarydns \
+    -L \
+    --output ../download/gratisdns.html \
+    --url 'https://admin.gratisdns.com/'
+
+tidy -q -asxml --numeric-entities yes ../download/gratisdns.html 2>/dev/null > ../download/gratisdns.xml
+domCount=$( \
+    xpath ../download/gratisdns.xml '//th[@scope="row"]/text()' 2>&1 \
+    | sed -E -e '1,2d' \
+    | grep "${DOMAIN}" \
+    | wc -l )
+if [ ! $(( ${domCount} )) -eq 1 ]
+then
+    echo "login fejlede / ${DOMAIN} findes ikke" 1>&2
+    exit 1
+fi
+
+
+#
+#   basis funktioner
+#   slut

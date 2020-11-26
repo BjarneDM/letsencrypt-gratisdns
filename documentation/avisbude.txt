@@ -1,0 +1,73 @@
+From - Sun Jun  7 00:29:33 2020
+X-Account-Key: account1
+X-UIDL: 00001e7151e26e62
+X-Mozilla-Status: 0001
+X-Mozilla-Status2: 00000000
+X-Mozilla-Keys:                                                                                 
+Return-Path: <root@miniweb.mathiesen.info>
+Delivered-To: bjarne@mathiesen.info
+Received: by miniweb.mathiesen.info (Postfix, from userid 0)
+	id 657BE10D759E; Sun,  7 Jun 2020 00:06:59 +0200 (CEST)
+From: root@miniweb.mathiesen.info (Cron Daemon)
+To: macintosh@mathiesen.info,bjarne@mathiesen.info
+Subject: Cron <root@MiniServer> ~bjarne/Sites/bin/letsencrypt/renew
+X-Cron-Env: <SHELL=/macports/bin/bash>
+X-Cron-Env: <PATH=/macports/bin:/macports/sbin:/Developer/usr/bin:/Developer/usr/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin>
+X-Cron-Env: <MAILTO=macintosh@mathiesen.info,bjarne@mathiesen.info>
+X-Cron-Env: <LOGNAME=root>
+X-Cron-Env: <USER=root>
+X-Cron-Env: <HOME=/var/root>
+Message-Id: <20200606220700.657BE10D759E@miniweb.mathiesen.info>
+Date: Sun,  7 Jun 2020 00:00:24 +0200 (CEST)
+
+
+
+- - - - - -
+Cert Name : avisbude.info ; Valid : 29 Days
+
+Saving debug log to /macports/var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator manual, Installer None
+Cert is due for renewal, auto-renewing...
+Renewing an existing certificate
+Performing the following challenges:
+dns-01 challenge for avisbude.info
+dns-01 challenge for avisbude.info
+Running manual-auth-hook command: ./authenticator.sh
+Output from manual-auth-hook command authenticator.sh:
+324933
+
+Running manual-auth-hook command: ./authenticator.sh
+Output from manual-auth-hook command authenticator.sh:
+324935
+
+Waiting for verification...
+Cleaning up challenges
+Running manual-cleanup-hook command: ./cleanup.sh
+Running manual-cleanup-hook command: ./cleanup.sh
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at:
+   /macports/etc/letsencrypt/live/avisbude.info/fullchain.pem
+   Your key file has been saved at:
+   /macports/etc/letsencrypt/live/avisbude.info/privkey.pem
+   Your cert will expire on 2020-09-04. To obtain a new or tweaked
+   version of this certificate in the future, simply run certbot
+   again. To non-interactively renew *all* of your certificates, run
+   "certbot renew"
+ - If you like Certbot, please consider supporting our work by:
+
+   Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+   Donating to EFF:                    https://eff.org/donate-le
+
+
+
+- - - - - -
+Cert Name : mathiesen.info ; Valid : 71 Days
+
+Saving debug log to /macports/var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator manual, Installer None
+Cert not yet due for renewal
+Keeping the existing certificate
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+Certificate not yet due for renewal; no action taken.
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

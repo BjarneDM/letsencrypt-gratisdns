@@ -1,0 +1,35 @@
+#!/macports/bin/bash
+
+cd "$( dirname ${0} )"
+
+function usage ()
+{
+cat << EOT
+usage : ${1} <domain.tld> [<sub-domain>[,<sub-domain]...]
+EOT
+exit 1 ; }
+
+[[ "${1}" = '-h' || "${1}" = '--help' ]] && usage $( basename ${0} )
+
+if [[ -z ${1} ]]
+then
+    echo "der er !ikke! angivet noget domæne"
+    usage $( basename ${0} )
+fi
+
+domains="${1},*.${1}"
+for subDomain in ${2//,/ }
+do
+    domains+=",*.${subDomain}.${1}"
+done
+
+certbot certonly \
+        --manual \
+        --non-interactive \
+        --manual-public-ip-logging-ok \
+        --preferred-challenges dns \
+        --server https://acme-v02.api.letsencrypt.org/directory \
+        --manual-auth-hook    ./functions/authenticator.sh \
+        --manual-cleanup-hook ./functions/cleanup.sh \
+        --cert-name ${1} \
+        --domains "${domains}"

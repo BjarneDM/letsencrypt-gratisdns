@@ -1,0 +1,96 @@
+=> ./new mathiesen.info dtu,zbc
+Saving debug log to /macports/var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator manual, Installer None
+Renewing an existing certificate
+Performing the following challenges:
+dns-01 challenge for dtu.mathiesen.info
+dns-01 challenge for zbc.mathiesen.info
+Running manual-auth-hook command: ./authenticator.sh
+Output from manual-auth-hook command authenticator.sh:
+259344
+
+Running manual-auth-hook command: ./authenticator.sh
+manual-auth-hook command "./authenticator.sh" returned error code -4
+Waiting for verification...
+Challenge failed for domain dtu.mathiesen.info
+Challenge failed for domain zbc.mathiesen.info
+dns-01 challenge for dtu.mathiesen.info
+dns-01 challenge for zbc.mathiesen.info
+Cleaning up challenges
+Running manual-cleanup-hook command: ./cleanup.sh
+manual-cleanup-hook command "./cleanup.sh" returned error code -4
+Running manual-cleanup-hook command: ./cleanup.sh
+Some challenges have failed.
+
+IMPORTANT NOTES:
+ - The following errors were reported by the server:
+
+   Domain: dtu.mathiesen.info
+   Type:   unauthorized
+   Detail: No TXT record found at _acme-challenge.dtu.mathiesen.info
+
+   Domain: zbc.mathiesen.info
+   Type:   unauthorized
+   Detail: No TXT record found at _acme-challenge.zbc.mathiesen.info
+
+   To fix these errors, please make sure that your domain name was
+   entered correctly and the DNS A/AAAA record(s) for that domain
+   contain(s) the right IP address.
+
+
+$=> dig TXT _acme-challenge.dtu.mathiesen.info
+
+; <<>> DiG 9.10.6 <<>> TXT _acme-challenge.dtu.mathiesen.info
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 24289
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;_acme-challenge.dtu.mathiesen.info. IN	TXT
+
+;; ANSWER SECTION:
+_acme-challenge.dtu.mathiesen.info. 299	IN TXT	"5TZQZCuouqdN537w-Q5cghC0m6bULwp7o7TPbs2ZH18"
+
+;; Query time: 31 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Tue Aug 13 09:58:48 CEST 2019
+;; MSG SIZE  rcvd: 119
+
+#=> ./new bdm-data.it
+Saving debug log to /macports/var/log/letsencrypt/letsencrypt.log
+Plugins selected: Authenticator manual, Installer None
+Obtaining a new certificate
+Performing the following challenges:
+dns-01 challenge for bdm-data.it
+dns-01 challenge for bdm-data.it
+Running manual-auth-hook command: ./authenticator.sh
+manual-auth-hook command "./authenticator.sh" returned error code -4
+Running manual-auth-hook command: ./authenticator.sh
+manual-auth-hook command "./authenticator.sh" returned error code -4
+Waiting for verification...
+Challenge failed for domain bdm-data.it
+Challenge failed for domain bdm-data.it
+dns-01 challenge for bdm-data.it
+dns-01 challenge for bdm-data.it
+Cleaning up challenges
+Running manual-cleanup-hook command: ./cleanup.sh
+Running manual-cleanup-hook command: ./cleanup.sh
+Some challenges have failed.
+
+IMPORTANT NOTES:
+ - The following errors were reported by the server:
+
+   Domain: bdm-data.it
+   Type:   unauthorized
+   Detail: No TXT record found at _acme-challenge.bdm-data.it
+
+   Domain: bdm-data.it
+   Type:   unauthorized
+   Detail: No TXT record found at _acme-challenge.bdm-data.it
+
+   To fix these errors, please make sure that your domain name was
+   entered correctly and the DNS A/AAAA record(s) for that domain
+   contain(s) the right IP address.
