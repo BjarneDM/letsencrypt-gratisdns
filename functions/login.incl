@@ -4,7 +4,7 @@ domainParts=( ${CERTBOT_DOMAIN//./ } )
 DOMAIN="${domainParts[*]: -2:2}"
 DOMAIN="${DOMAIN// /.}"
 
-. ../setttings/domains.incl
+. ./settings/domains.incl
 
 read -u 9 user password 9< <( echo "${loginInfo[${DOMAIN}]}" )
 

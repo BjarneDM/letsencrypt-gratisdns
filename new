@@ -1,4 +1,4 @@
-#!/macports/bin/bash
+#!/usr/bin/env bash
 
 cd "$( dirname ${0} )"
 
@@ -18,7 +18,7 @@ then
 fi
 
 domains="${1},*.${1}"
-for subDomain in ${2//,/ }
+for subDomain in ${2/,/ }
 do
     domains+=",*.${subDomain}.${1}"
 done

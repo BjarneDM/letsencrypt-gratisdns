@@ -1,4 +1,4 @@
-#!/macports/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname ${0})"
 
@@ -19,7 +19,6 @@ do
     certbot certonly \
             --manual \
             --non-interactive \
-            --manual-public-ip-logging-ok \
             --preferred-challenges dns \
             --server https://acme-v02.api.letsencrypt.org/directory \
             --manual-auth-hook    ./functions/authenticator.sh \
@@ -28,4 +27,5 @@ do
             --domains ${domains}
 
 done 9< <(  certbot certificates 2>/dev/null \
-            | awk '/Name:/{print $3}' )
+            | grep -F 'Certificate Name' \
+            | awk '{print $3}' )
