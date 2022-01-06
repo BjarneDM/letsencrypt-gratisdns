@@ -2,6 +2,8 @@
 
 #
 # this is something that is present on macOS from at least 10.6.8
+# modified to user Macports instead of the default Apple Perl5
+# (you may need to install the XML::XPath module)
 #
 
 eval 'exec /opt/local/bin/perl5 -w -S $0 ${1+"$@"}'
