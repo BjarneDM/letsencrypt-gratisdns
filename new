@@ -23,11 +23,15 @@ do
     domains+=",*.${subDomain}.${1}"
 done
 
+./functions/authenticator.sh
+exit
+
 certbot certonly \
         --manual \
         --non-interactive \
         --manual-public-ip-logging-ok \
         --preferred-challenges dns \
+        --preferred-chain "ISRG Root X1" \
         --server https://acme-v02.api.letsencrypt.org/directory \
         --manual-auth-hook    ./functions/authenticator.sh \
         --manual-cleanup-hook ./functions/cleanup.sh \

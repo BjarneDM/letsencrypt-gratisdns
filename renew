@@ -20,6 +20,7 @@ do
             --manual \
             --non-interactive \
             --preferred-challenges dns \
+            --preferred-chain "ISRG Root X1" \
             --server https://acme-v02.api.letsencrypt.org/directory \
             --manual-auth-hook    ./functions/authenticator.sh \
             --manual-cleanup-hook ./functions/cleanup.sh \
